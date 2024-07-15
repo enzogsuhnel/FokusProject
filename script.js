@@ -5,9 +5,16 @@ const longButton = document.querySelector('.app__card-button--longo');
 const banner = document.querySelector('.app__image');
 const tittle = document.querySelector('.app__title');
 const buttons = document.querySelectorAll('.app__card-button');
+const startPauseButton = document.querySelector('#start-pause');
+
 const musicFocusInput = document.querySelector('#alternar-musica');
 const music = new Audio('./sons/luna-rise-part-one.mp3');
+
+let runningTimeInSeconds = 5;
+let intervaloId = null;
+
 music.loop = true;
+
 
 musicFocusInput.addEventListener('change', () => {
     if(music.paused) {
@@ -55,29 +62,16 @@ function alterarContexto(contexto){
             break;    
 }}
 
-/*const html = document.querySelector('html');
-const focusButton = document.querySelector('.app__card-button--foco');
-const shortButton = document.querySelector('.app__card-button--curto');
-const longButton = document.querySelector('.app__card-button--longo');
-const displayTimer= dociment.querySelector('#timer');
-const banner = document.querySelector('.app__image');
-const tittle = document.querySelector('.app__title');
-const changeStatusDisplayTimer = document.querySelector('.app__card-primary-button');
-const focusDuration= 1500;
-const shortDuration = 300;
-const longDuration = 900;
+const contagemRegressiva = () => {
+    //iniciar();
+    runningTimeInSeconds -= 1
+    console.log('Temporizador: ' + runningTimeInSeconds);
+}
 
-focusButton.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco');
-    banner.setAttribute('src', '/imagens/foco.png');
-})
+startPauseButton.addEventListener('click', contagemRegressiva);
 
-shortButton.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-curto');
-    banner.setAttribute('src', '/imagens/descanso-curso.png');
-})
+function iniciar() {
+    intervaloId = setInterval(contagemRegressiva, 1000); 
+}
 
-longButton.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'descanso-longo');
-    banner.setAttribute('src', '/imagens/descanso-longo.png');
-})*/
+//ERROs: image not found // aula falando de breack no setinterval
