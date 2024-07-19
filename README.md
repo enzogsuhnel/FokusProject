@@ -1,5 +1,3 @@
-![](thumbnail.png)
-
 # Fokus
 
 Olá, aventureiro(a) digital! Você acabou de embarcar na jornada de descoberta do nosso projeto incrível desenvolvido ao longo do curso "JavaScript: explorando a manipulação de elementos e da localStorage". Agarre-se à sua cadeira, pois vamos desbravar os mares do código!
