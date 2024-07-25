@@ -1,5 +1,3 @@
-// encontrar o botão adicionar tarefa
-
 const btnAdicionarTarefa = document.querySelector('.app__button--add-task')
 const formAdicionarTarefa = document.querySelector('.app__form-add-task')
 const textarea = document.querySelector('.app__form-textarea')
@@ -38,9 +36,7 @@ function criarElementoTarefa(tarefa) {
     botao.classList.add('app_button-edit')
 
     botao.onclick = () => {
-        // debugger
         const novaDescricao = prompt("Qual é o novo nome da tarefa?")
-        // console.log('Nova descrição da tarefa: ', novaDescricao)
         if (novaDescricao) {            
             paragrafo.textContent = novaDescricao
             tarefa.descricao = novaDescricao
@@ -116,11 +112,8 @@ document.addEventListener('FocoFinalizado', () => {
 })
 
 const removerTarefas  = (somenteCompletas) => {
-    // const seletor = somenteCompletas ? ".app__section-task-list-item-complete" : ".app__section-task-list-item"
-    let seletor =  ".app__section-task-list-item"
-    if (somenteCompletas) {
-        seletor = ".app__section-task-list-item-complete"
-    }
+    let seletor =  somenteCompletas ? ".app__section-task-list-item" : ".app__section-task-list-item-complete"
+    
     document.querySelectorAll(seletor).forEach(elemento => {
         elemento.remove()
     })
